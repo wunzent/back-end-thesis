@@ -72,7 +72,7 @@ imageRoute.post("/uploadFile", upload.single("image"), (req, res) => {
 
 imageRoute.use(function (err, req, res, next) {
   if (err.code === "LIMIT_FILE_TYPES") {
-    res.json({status:"error",message: "Only image are allowed .png, .jpg และ .jpeg !" })
+    res.json({status:"error",message: "Only image are allowed .png, .jpg and .jpeg !" })
     return;
   }
   if(err.code === "LIMIT_FILE_SIZE"){
