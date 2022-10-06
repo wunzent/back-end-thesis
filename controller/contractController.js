@@ -60,9 +60,9 @@ contractRoute.post('/contract', async (req, res, next) => {
     const { AuctionId, ReferenceNo, CompanyId, ContractYear, ContractOrder, ContractNo, ContractNoDate, ContractName, Cost, StartDate, EndDate, Duration, InspDate, InspStatus, CloseStatus, AcceptedDate, InsurDuration, InsurEndStatus, InsurEndDate, ModifiedDate, PartnerId, ProgressId, costsumId, Note, contracttypeid, signedstatus } = req.body
     try {
         dbcofig.execute(
-            'INSERT INTO `contract`(`AuctionId`, `ReferenceNo`, `CompanyId`, `ContractYear`, `ContractOrder`, `ContractNo`, `ContractNoDate`, `ContractName`, `Cost`, `StartDate`, `EndDate`, `Duration`, `InspDate`, `InspStatus`, `CloseStatus`, `AcceptedDate`, `InsurDuration`, `InsurEndStatus`, `InsurEndDate`, `ModifiedDate`, `PartnerId`, `ProgressId`, `costsumId`, `Note`, `contracttypeid`, `signedstatus`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?)',
+            'INSERT INTO `contract`(AuctionId, ReferenceNo, CompanyId, ContractYear, ContractOrder, ContractNo, ContractNoDate, ContractName, Cost, StartDate, EndDate, Duration, InspDate, InspStatus, CloseStatus, AcceptedDate, InsurDuration, InsurEndStatus, InsurEndDate, ModifiedDate, PartnerId, ProgressId, costsumId, Note, contracttypeid, signedstatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?)',
             [
-                AuctionId, ReferenceNo, CompanyId, ContractYear, ContractOrder, ContractNo, ContractNoDate, ContractName, Cost, StartDate, EndDate, Duration, InspDate, InspStatus, CloseStatus, AcceptedDate, InsurDuration, InsurEndStatus, InsurEndDate, ModifiedDate, PartnerId, ProgressId, costsumId, Note, contracttypeid, signedstatus, 
+                AuctionId, ReferenceNo, CompanyId, ContractYear, ContractOrder, ContractNo, ContractNoDate, ContractName, Cost, StartDate, EndDate, Duration, InspDate, InspStatus, CloseStatus, AcceptedDate, InsurDuration, InsurEndStatus, InsurEndDate, ModifiedDate, PartnerId, ProgressId, costsumId, Note, contracttypeid, signedstatus 
             ], (err, results) => {
                 if (err) {
                     res.json({ status: "error", message: err });
@@ -80,7 +80,7 @@ contractRoute.post('/contract', async (req, res, next) => {
 //Put
 contractRoute.put('/contract/:id', async (req, res, next) => {
     try {
-        const { AuctionId, ReferenceNo, CompanyId, ContractYear, ContractOrder, ContractNo, ContractNoDate, ContractName, Cost, StartDate, EndDate, Duration, InspDate, InspStatus, CloseStatus, AcceptedDate, InsurDuration, InsurEndStatus, InsurEndDate, ModifiedDate, PartnerId, ProgressId, costsumId, Note, contracttypeid, signedstatus, } = req.body
+        const { AuctionId, ReferenceNo, CompanyId, ContractYear, ContractOrder, ContractNo, ContractNoDate, ContractName, Cost, StartDate, EndDate, Duration, InspDate, InspStatus, CloseStatus, AcceptedDate, InsurDuration, InsurEndStatus, InsurEndDate, ModifiedDate, PartnerId, ProgressId, costsumId, Note, contracttypeid, signedstatus } = req.body
         dbcofig.execute(
             'UPDATE `contract` SET `AuctionId`=?, `ReferenceNo`=?, `CompanyId`=?, `ContractYear`=?, `ContractOrder`=?, `ContractNo`=?, `ContractNoDate`=?, `ContractName`=?, `Cost`=?, `StartDate`=?, `EndDate`=?, `Duration`=?, `InspDate`=?, `InspStatus`=?, `CloseStatus`=?, `AcceptedDate`=?, `InsurDuration`=?, `InsurEndStatus`=?, `InsurEndDate`=?, `ModifiedDate`=?, `PartnerId`=?, `ProgressId`=?, `costsumId`=?, `Note`=?, `contracttypeid`=?, `signedstatus`=? WHERE `ContractId`=?',
             [
